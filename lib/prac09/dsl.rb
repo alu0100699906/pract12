@@ -5,6 +5,8 @@ class Mydsl #clase mydsl
 	def initialize (operacion, &block)
 		@operacion = operacion
 		@operando = []
+		@modomatriz = "densa"
+
 		if block_given?  
 			if block.arity == 1
 				yield self
@@ -41,11 +43,27 @@ class Mydsl #clase mydsl
 			puts "Error: #{@operacion} comando desconocido, inserte ayuda para mas informacion"
 		end
 	end
+
+	def option(opcion)
+    		case opcion
+      		when "densa","dispersa" 
+			@modomatriz = opcion
+   		#   when "console","file" then @show = opt
+    		end
+  	end
 	
 	 def operando(n, m, vector)
-		 op = Matriz.constructor(n, m, vector)
-		 @operando << op
-	 end
+	 
+		case @modomatriz
+		when "densa"
+			op=MatrizDensa.new(n,m,vector)
+			@operando << op
+
+		when "dispersa"
+			op=MatrizDispersa.new(n,m,vector)
+			@operando << op
+		end
+	end
 
 	
 end
