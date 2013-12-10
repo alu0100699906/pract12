@@ -42,7 +42,7 @@ describe Matriz do
 	
 	end
 
-	 describe "# pruebas " do
+	describe "# pruebas " do
 
 		it "instanciacion de un racional" do
 			@fa = Fraccion.new(1,2)		
@@ -124,5 +124,13 @@ describe Matriz do
 	
 	end
 	
+	describe "pruebas con dsl" do
+		it " suma" do
+			t = Mydsl.new("suma") do
+				operando (@ma)
+				operando (@dis)
+			end
+		end
+	end
 end
 
