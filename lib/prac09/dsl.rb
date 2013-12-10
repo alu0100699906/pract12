@@ -2,7 +2,7 @@
 
 class Mydsl < Matriz #clase mydsl
 
-	def intitialize (operacion, &block)
+	def initialize (operacion, &block)
 		@operacion = operacion
 		@operando = []
 		if block_given?  
@@ -16,22 +16,22 @@ class Mydsl < Matriz #clase mydsl
 	
 	def run	
 		#switch case con los tipos de operacion
-		case operacion
-		when 'suma' #operacion suma de matrices
+		case @operacion
+		when "suma" #operacion suma de matrices
 			i=0
 			while i < operando.size
 				operando[0] + operando[1]
 			end
 			
 			resultado.to_s
-		when 'resta' #operacion resta de matrices
+		when "resta" #operacion resta de matrices
 			puts "Error se han introducido mas de dos operandos" unless operando.size <= 2
 			resultado = operando[0]-operando[1]
 			
 			resultado.to_s
-		when 'producto' #operacion producto de matrices
+		when "producto" #operacion producto de matrices
 			resultado = operando[0] * operando[1]
-		when 'ayuda' #mostrar ayuda para ver comandos
+		when "ayuda" #mostrar ayuda para ver comandos
 			puts "-> Ayuda del sistema:"
 			puts "Puede usar los siguientes operandos:"
 			puts "suma\tresta\tproducto"
@@ -41,13 +41,9 @@ class Mydsl < Matriz #clase mydsl
 		end
 	end
 	
-	#~ def operando(n, m, vector)
-		#~ op = Matriz.new (n, m, vector)
-		#~ @operando << op
-	#~ end
+	 def operando(n, m, vector)
+		 op = Matriz.constructor(n, m, vector)
+		 @operando << op
+	 end
 	
-	def operando (&mat)
-		op = mat
-		@operando << op
-	end
 end

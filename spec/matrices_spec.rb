@@ -126,9 +126,9 @@ describe Matriz do
 	
 	describe "pruebas con dsl" do
 		it " suma" do
-			t = Mydsl.new("suma") do
-				operando (@ma)
-				operando (@dis)
+			@t = Mydsl.new("suma") do
+				operando(2,2,[1,1,2,2])
+				operando(2,2,[2,2,4,4])
 			end
 		end
 	end
