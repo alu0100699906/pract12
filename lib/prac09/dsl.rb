@@ -28,6 +28,8 @@ class Mydsl < Matriz #clase mydsl
 			resultado.to_s
 		when "producto" #operacion producto de matrices
 			resultado = operando[0] * operando[1]
+			
+			resultado.to_s
 		when "ayuda" #mostrar ayuda para ver comandos
 			puts "-> Ayuda del sistema:"
 			puts "Puede usar los siguientes operadores:"
