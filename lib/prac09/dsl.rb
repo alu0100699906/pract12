@@ -14,24 +14,24 @@ class Mydsl #clase mydsl
 		end
 	end
 	
+
 	def run	
+               resultado=""
 		#switch case con los tipos de operacion
 		case @operacion
 		when "suma" #operacion suma de matrices
-			puts "Error se han detectado mas de dos operandos" unless operando.size > 2
-			resultado = operando[0] + operando[1]
-			
-			resultado.to_s
+
+			resultado << "#{(@operando[0] + @operando[1]).to_s}"
+
 		when "resta" #operacion resta de matrices
-			puts "Error se han detectado mas de dos operandos" unless operando.size > 2
-			resultado = operando[0]-operando[1]
 			
-			resultado.to_s
+			resultado << "#{(@operando[0] - @operando[1]).to_s}"
+			
+
 		when "producto" #operacion producto de matrices
-			puts "Error se han detectado mas de dos operandos" unless operando.size > 2
-			resultado = operando[0] * operando[1]
 			
-			resultado.to_s
+			resultado << "#{(@operando[0] * @operando[1]).to_s}"
+
 		when "ayuda" #mostrar ayuda para ver comandos
 			puts "-> Ayuda del sistema:"
 			puts "Puede usar los siguientes operadores:"
@@ -46,5 +46,6 @@ class Mydsl #clase mydsl
 		 op = Matriz.constructor(n, m, vector)
 		 @operando << op
 	 end
+
 	
 end

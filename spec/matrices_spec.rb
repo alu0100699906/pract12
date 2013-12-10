@@ -130,7 +130,25 @@ describe Matriz do
 				operando(2,2,[1,1,2,2])
 				operando(2,2,[2,2,4,4])
 			end
+			@t.run.should==('[[3,3],[6,6]]')
 		end
+
+		it "resta" do
+			@res = Mydsl.new("resta") do
+				operando(2,2,[2,2,4,4])
+				operando(2,2,[1,1,2,2])
+			end
+			@res.run.should==('[[1,1],[2,2]]')
+		end
+
+		it "producto" do
+			@producto = Mydsl.new("producto") do
+				operando(3,3,[1,1,1,2,2,2,3,3,3])
+				operando(3,3,[1,2,3,1,2,3,1,2,3])
+			end
+			@producto.run.should==('[[3,6,9],[6,12,18],[9,18,27]]')
+		end
+
 	end
 end
 
