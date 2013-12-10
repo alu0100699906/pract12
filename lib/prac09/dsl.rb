@@ -1,6 +1,6 @@
 #! usr/bin/ruby
 
-class Mydsl < Matriz #clase mydsl
+class Mydsl #clase mydsl
 
 	def initialize (operacion, &block)
 		@operacion = operacion
@@ -18,15 +18,17 @@ class Mydsl < Matriz #clase mydsl
 		#switch case con los tipos de operacion
 		case @operacion
 		when "suma" #operacion suma de matrices
+			puts "Error se han detectado mas de dos operandos" unless operando.size > 2
 			resultado = operando[0] + operando[1]
 			
 			resultado.to_s
 		when "resta" #operacion resta de matrices
-			puts "Error se han introducido mas de dos operandos" unless operando.size <= 2
+			puts "Error se han detectado mas de dos operandos" unless operando.size > 2
 			resultado = operando[0]-operando[1]
 			
 			resultado.to_s
 		when "producto" #operacion producto de matrices
+			puts "Error se han detectado mas de dos operandos" unless operando.size > 2
 			resultado = operando[0] * operando[1]
 			
 			resultado.to_s
