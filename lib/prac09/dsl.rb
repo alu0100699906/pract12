@@ -18,10 +18,7 @@ class Mydsl < Matriz #clase mydsl
 		#switch case con los tipos de operacion
 		case @operacion
 		when "suma" #operacion suma de matrices
-			i=0
-			while i < operando.size
-				operando[0] + operando[1]
-			end
+			resultado = operando[0] + operando[1]
 			
 			resultado.to_s
 		when "resta" #operacion resta de matrices
@@ -33,9 +30,9 @@ class Mydsl < Matriz #clase mydsl
 			resultado = operando[0] * operando[1]
 		when "ayuda" #mostrar ayuda para ver comandos
 			puts "-> Ayuda del sistema:"
-			puts "Puede usar los siguientes operandos:"
+			puts "Puede usar los siguientes operadores:"
 			puts "suma\tresta\tproducto"
-			puts "la sintaxis es "
+
 		else
 			puts "Error: #{@operacion} comando desconocido, inserte ayuda para mas informacion"
 		end
