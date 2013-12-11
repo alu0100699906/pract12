@@ -46,6 +46,5 @@ La clase Matriz contendrá la implementacion de unos métodos generales para las
 ## Ejecución del intérprete DSL
 Hemos desarrollado un pequeño y simple intérprete para el lenguaje DSL, puede ejecutarlo ubicandose en la raiz del repositorio:
 
-                $>ruby Consola.rb
-
+                $>rake consola
                     
