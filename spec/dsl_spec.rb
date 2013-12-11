@@ -48,7 +48,7 @@ describe "pruebas con dsl" do
 				operando(3,3,[2,0,2,2,0,0,0,0,0])
 				salida "fichero"
 			end
-			@productodisp.run.should==('[[2,0,0],[2,0,2],[0,0,0]]')
+			@productodisp.run
 		end
 
 

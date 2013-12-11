@@ -6,7 +6,8 @@ class Mydsl #clase mydsl
 	def initialize (operacion, &block)
 		@operacion = operacion
 		@operando = []
-		@salida=""
+		@salida="console"  #por defecto
+		@fich="salida.txt" #fichero de salida por defecto para cambiarlo fich nuevonombre
 
 		if block_given?  
 			if block.arity == 1
@@ -26,23 +27,38 @@ class Mydsl #clase mydsl
 
 			resultado << "#{(@operando[0] + @operando[1]).to_s}"
 
+			if(@salida=="fichero")
+				fichero(resultado, @fich)
+			else
+				resultado
+			end
+			
 		when "resta" #operacion resta de matrices
 			
 			resultado << "#{(@operando[0] - @operando[1]).to_s}"
 			
+			if(@salida=="fichero")
+				fichero(resultado, @fich)
+			else
+				resultado
+			end
 
 		when "producto" #operacion producto de matrices
 			
-			if(@salida=="console")
 			resultado << "#{(@operando[0] * @operando[1]).to_s}"
 			
-			elsif(@salida=="fichero")
-				fichero(resultado, fich="salida.txt")
+			if(@salida=="fichero")
+				fichero(resultado, @fich)
+			else
+				resultado
 			end
+			
 		when "ayuda" #mostrar ayuda para ver comandos
 			puts "-> Ayuda del sistema:"
 			puts "Puede usar los siguientes operadores:"
 			puts "suma\tresta\tproducto"
+			puts "Cada uno de los operadores necesita dos operandos"
+			puts "Ejemplo de uso: operando(3,3,[2,0,2,2,0,0,0,0,0])"
 
 		else
 			puts "Error: #{@operacion} comando desconocido, inserte ayuda para mas informacion"
@@ -54,37 +70,28 @@ class Mydsl #clase mydsl
 		@salida = string
 	end	
 
-	def operando(n, m, vector)
+	def fich (string)
+		@fich = string
+	end
+	
+	def operando(n, m, vector) # añadimos un operando
 			op=Matriz.constructor(n,m,vector)
 			@operando << op
 	end
 
-	def fichero (matriz, fich)
-		File.open(fich, 'w')##almacenamos cualquier contenido anterior antes de reescribir el fichero
+	def fichero (matriz, fich) # salida a fichero
+		File.open(fich, 'w') 
 
 		File.open(fich, 'r+') do |f|
-        		while f.eof == false
-            			f.gets
-        		end
-			f.print "["
-        		fil=0
-        		while (fil<matriz.filas)
-            			f.print = "[" #corchete de fila
-            			col=0
-            			while (col<@columnas)
-                			f.pint = "#{matriz[fil][col]}"
-                			col += 1
-                			if(col < @columnas)
-						f.print = ","
-                			end
-            			end
-            			f.print= "]" #cerramos el corchete de fila
-            			fil += 1
-            			if (fil < matriz.filas)
-                			f.print = ","
-            			end
-        		end
-			f.print = "]" ##cerramos el corchete de matriz
-		end 
+			while f.eof == false
+				f.gets
+			end
+        
+			i=0
+			while i<matriz.size	
+				f.print matriz[i]
+				i += 1
+			end 
+		end
 	end
 end
