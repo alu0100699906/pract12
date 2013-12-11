@@ -6,7 +6,6 @@ describe "pruebas con dsl" do
 			@sum = Mydsl.new("suma") do
 				operando(2,2,[1,1,2,2])
 				operando(2,2,[2,2,4,4])
-				option "densa"
 			end
 			@sum.run.should==('[[3,3],[6,6]]')
 
@@ -14,11 +13,9 @@ describe "pruebas con dsl" do
 			@sumdisp = Mydsl.new("suma") do
 				operando(3,3,[0,0,0,0,0,1,0,0,0])
 				operando(3,3,[0,0,0,0,0,1,0,0,0])
-				option "dispersa"
 			end
 			@sumdisp.run.should==('[[0,0,0],[0,0,2],[0,0,0]]')
 
-	
 		end
 		
 		
@@ -27,14 +24,13 @@ describe "pruebas con dsl" do
 			@res = Mydsl.new("resta") do
 				operando(2,2,[2,2,4,4])
 				operando(2,2,[1,1,2,2])
-				option "densa"
+
 			end
 			@res.run.should==('[[1,1],[2,2]]')
 
 			@resdisp = Mydsl.new("resta") do
 				operando(3,3,[0,0,0,0,0,7,0,0,0])
 				operando(3,3,[0,0,0,0,0,1,0,0,0])
-				option "dispersa"
 			end
 			@resdisp.run.should==('[[0,0,0],[0,0,6],[0,0,0]]')
 		end
@@ -43,14 +39,14 @@ describe "pruebas con dsl" do
 			@producto = Mydsl.new("producto") do
 				operando(3,3,[1,1,1,2,2,2,3,3,3])
 				operando(3,3,[1,2,3,1,2,3,1,2,3])
-				option "densa"
+				salida "console"
 			end
 			@producto.run.should==('[[3,6,9],[6,12,18],[9,18,27]]')
 
 			@productodisp = Mydsl.new("producto") do
 				operando(3,3,[0,1,2,1,0,0,0,0,0])
 				operando(3,3,[2,0,2,2,0,0,0,0,0])
-				option "dispersa"
+				salida "fichero"
 			end
 			@productodisp.run.should==('[[2,0,0],[2,0,2],[0,0,0]]')
 		end
