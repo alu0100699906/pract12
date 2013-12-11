@@ -1,13 +1,11 @@
 ==============================================================
-Prac11
+Prac12
 ==============================================================
 ##Estado actual de TRAVIS [![Build Status](https://travis-ci.org/alu0100702293/pract11.png?branch=master)](https://travis-ci.org/alu0100702293/pract11)
-La Pract11 consta de Documentar la gema creada en la pract09 utilizando RDOC.
-Así mismo, desarrollar métodos con la filosofía de la programación funcional.
+La Pract12
 
-Para esto usamos el comando rdoc en el directorio de trabajo, se genera automaticamente un directorio doc/ con toda la documentacion en formato .html. 
-Por otra parte, se deben utilizar métodos como 'map/collect', 'inject/reduce', 'upto' o 'times' para implementar la suma y el producto de matrices. En este caso, hemos usado métodos times.
-
+                Seguir las dependencias de la Gema (Gemnasium).
+                Diseñar e implementar un Lenguaje de Dominio Específico (Domain Specific Language - DSL).
 
 Prac09
 
@@ -45,6 +43,9 @@ Si quieres usar esta gema en tu aplicación Ruby, incluye el fichero "pract09"
         
 La clase Matriz contendrá la implementacion de unos métodos generales para las operaciones +, -, *, to_s, == (método que pasa a una cadena de caracteres). Las clases derivadas implementarán para cada una los métodos de comparación y de acceso ([]=, []) ya que éstos tienen funcionamientos distintos debido a cómo almacena la información cada una de las clases.
 
+## Ejecución del intérprete DSL
+Hemos desarrollado un pequeño y simple intérprete para el lenguaje DSL, puede ejecutarlo ubicandose en la raiz del repositorio:
 
+                $>ruby Consola.rb
 
                     
