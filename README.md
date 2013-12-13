@@ -2,6 +2,9 @@
 Prac12
 ==============================================================
 ##Estado actual de TRAVIS [![Build Status](https://travis-ci.org/alu0100702293/pract11.png?branch=master)](https://travis-ci.org/alu0100702293/pract11)
+
+##Estado actual de Gemnasium [![Dependency Status](https://gemnasium.com/alu0100699906/Pract12.png)](https://gemnasium.com/alu0100699906/Pract12)
+
 La Pract12
 
                 Seguir las dependencias de la Gema (Gemnasium).
